@@ -1,0 +1,14 @@
+——Crawler——
+in this part we take each a url and crawl its page in the following steps:
+1-check if the url is visited before or not , if visited we don’t visit it again
+2-if not visited we get the html content of the page and extract any links in it and appending its urls to the URLsToVisit hashset
+3-we repeat this step till we reach the maximum pages to visit , then stop
+
+-put on mind that every base url in running on a thread and all the threads have a shared visited urls set 
+
+-we used sql database to help us in maintaining the state of the crawler when interrupted , as we save the visited urls , pages to be visited and base urls in separate tables and delete every base url and accordingly its visited urls when reaching the maximum number of visited pages
+ 
+-we have also a set of robots urls that we prevent the crawler to crawl them is needed
+
+——Indexer——
+-Porter Stemmer
